@@ -87,6 +87,16 @@ instance : BEq Direction where
   #eval (BEq.beq Direction.south Direction.east)
   #eval (BEq.beq Direction.west Direction.north)
   #eval (BEq.beq Direction.west Direction.south)
+#eval BEq.beq Direction.north Direction.north
+#eval BEq.beq Direction.north Direction.south
+#eval BEq.beq Direction.north Direction.west
+#eval BEq.beq Direction.north Direction.east
+#eval BEq.beq Direction.south Direction.north
+#eval BEq.beq Direction.south Direction.south
+#eval BEq.beq Direction.south Direction.west
+#eval BEq.beq Direction.south Direction.east
+#eval BEq.beq Direction.west Direction.north
+#eval BEq.beq Direction.west Direction.south
 
 
 -- 4. Find out and interpret the type signatures of the terms `[]`, `Just`, `Right`. Which syntactic/semantic features in Lean make parametric polymorphism more clearer/rigorous compared to Haskell?

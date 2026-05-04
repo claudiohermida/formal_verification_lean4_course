@@ -4,25 +4,13 @@ inductive Natural where
 
 open Natural
 
-def z : Natural := zero
-def one : Natural := succ zero
-def two : Natural := succ one
-def three : Natural := succ two
-def four : Natural := succ three
+def x : Natural := zero
+def y : Natural := succ zero
 
 def add x y := match x with
   | zero   => y
   | succ z => succ (add z y)
 
+def mult (x y : Nat) : Nat := sorry
 
--- excercise
-def mult (x y : Natural) : Natural := match x with
-  | zero => zero
-  | succ z => add (mult z y) y
-
-
-#eval mult two two
-
-
--- excercise
-def factorial (x : Natural) : Natural := sorry
+def factorial (x : Nat) : Nat := sorry

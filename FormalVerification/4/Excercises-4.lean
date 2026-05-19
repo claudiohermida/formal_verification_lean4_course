@@ -128,11 +128,16 @@ match l with
 #eval creditAccount testLedger 3 100
 #eval creditAccount testLedger 5 100
 
-
+/-
 def transferFunds (l : Ledger) (fromId : Ident) (toId : Ident) (amt : Amount) : Option Ledger :=
   match debitAccount l fromId amt with
   | none => none
   | some l' => creditAccount l' toId amt
+-/
+
+def transferFunds (l : Ledger) (fromId : Ident) (toId : Ident) (amt : Amount) : Option Ledger :=
+debitAccount l fromId amt >>= fun l' => creditAccount l' toId amt
+
 
 #eval transferFunds testLedger 1 1 100
 #eval transferFunds testLedger 3 1 10
